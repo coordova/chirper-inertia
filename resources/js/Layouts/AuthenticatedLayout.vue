@@ -32,6 +32,10 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+                                <!--Agregamos el enlace a los chirps-->
+                                <NavLink :href="route('chirps.index')" :active="route().current('chirps.index')">
+                                    Chirps
+                                </NavLink>
                             </div>
                         </div>
 
@@ -113,6 +117,9 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                            Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('chirps.index')" :active="route().current('chirps.index')">
                             Dashboard
                         </ResponsiveNavLink>
                     </div>

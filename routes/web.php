@@ -35,4 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+/*---------------------------------------------*/
+// Rutas - Resource routes
+/*---------------------------------------------*/
+Route::resource('chirps', \App\Http\Controllers\ChirpController::class)
+    ->only(['index', 'store'])
+    ->middleware(['auth', 'verified']);
+/*---------------------------------------------*/
+
 require __DIR__.'/auth.php';
