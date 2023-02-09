@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 // Rutas - Resource routes
 /*---------------------------------------------*/
 Route::resource('chirps', \App\Http\Controllers\ChirpController::class)
-    ->only(['index', 'store'])
+    ->only(['index', 'store', 'update'])
     ->middleware(['auth', 'verified']);
 /*---------------------------------------------*/
 

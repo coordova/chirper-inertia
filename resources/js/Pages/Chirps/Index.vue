@@ -9,9 +9,11 @@ const form = useForm({
     message: '',
 });
 
-defineProps({
+defineProps(['chirps']);
+
+/*defineProps({
     'chirps': Object
-});
+});*/
 </script>
 
 <template>
