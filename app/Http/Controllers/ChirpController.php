@@ -11,13 +11,16 @@ class ChirpController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
-        return Inertia::render('Chirps/Index', [
+        /*return Inertia::render('Chirps/Index', [
             'chirps' => Chirp::with('user:id,name')->latest()->get(),
             // 'chirps' => Chirp::all()
+        ]);*/
+        return Inertia::render('Chirps/Index', [
+            'chirps' => Chirp::with('user:id,name')->latest()->get(),
         ]);
     }
 
@@ -35,7 +38,7 @@ class ChirpController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -75,14 +78,18 @@ class ChirpController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Chirp  $chirp
-     * @return \Illuminate\Http\Response
+     * return \Illuminate\Http\Response
      */
     public function update(Request $request, Chirp $chirp)
     {
+        // dd('update');
         $this->authorize('update', $chirp);
 
+        /*$validated = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);*/
         $validated = $request->validate([
-            'message' => 'required|string|mas:255',
+            'message' => 'required|string|max:255',
         ]);
 
         $chirp->update($validated);

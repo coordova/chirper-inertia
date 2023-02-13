@@ -10,11 +10,6 @@ defineProps(['chirps']);
 const form = useForm({
     message: '',
 });
-
-
-/*defineProps({
-    'chirps': Object
-});*/
 </script>
 
 <template>
@@ -31,6 +26,7 @@ const form = useForm({
                 <InputError :message="form.errors.message" class="mt-2" />
                 <PrimaryButton class="mt-4">Chirp</PrimaryButton>
             </form>
+
             <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
                 <Chirp
                     v-for="chirp in chirps"
